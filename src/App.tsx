@@ -1,10 +1,19 @@
 import { Header } from "./components/Header/Header"
-import { Container, Content } from './AppStyles';
+import { Input } from "./components/Input/Input";
+
+import { Container, Content, TaskAction, TaskContainer, ButtonCreate } from './AppStyles';
 
 export function App() {
  return (
  <Container>
    <Header/>
+
+    <TaskContainer>
+      <TaskAction>
+        <Input />
+        <ButtonCreate>Criar</ButtonCreate>
+      </TaskAction>
+    </TaskContainer>
 
    <Content>
     
