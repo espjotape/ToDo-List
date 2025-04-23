@@ -13,6 +13,7 @@ export const TaskContainer = styled.section`
   max-width: 46rem;
   width: 100%;
   margin: 0 auto;
+  flex-direction: column;
 `;
 
 export const TaskAction = styled.div`
@@ -34,14 +35,8 @@ export const ButtonCreate = styled.button`
 `
 
 export const Content = styled.main`
-  flex: 1;
-  padding: 2rem;  // Ajuste o padding conforme necessário
-  background-color: ${({ theme }) => theme.COLORS.GRAY_600}; // Cor mais clara para o conteúdo
-  color: ${({ theme }) => theme.COLORS.GRAY_100}; // Cor do texto
   display: flex;
-  justify-content: center; 
-  align-items: center; 
-  text-align: center; 
-  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
 `;
 

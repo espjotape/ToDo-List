@@ -1,5 +1,6 @@
 import { Header } from "./components/Header/Header"
 import { Input } from "./components/Input/Input";
+import { TaskInfoCard } from "./components/TaskInfoCard/TaskInfoCard"
 
 import { Container, Content, TaskAction, TaskContainer, ButtonCreate } from './AppStyles';
 
@@ -13,11 +14,11 @@ export function App() {
         <Input />
         <ButtonCreate>Criar</ButtonCreate>
       </TaskAction>
-    </TaskContainer>
 
-   <Content>
-    
-   </Content>
+    <Content>
+      <TaskInfoCard />
+    </Content>
+    </TaskContainer>
   </Container>
   );
 }
