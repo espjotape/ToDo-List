@@ -5,7 +5,7 @@ export const Container = styled.header `
  align-items: center;
  justify-content: space-between;
  width: 100%;
- margin-bottom: 1.5rem;
+ margin-top: 1.5rem;
 
  background-color: ${({ theme }) => theme.COLORS.GRAY_600};
  color: ${({ theme }) => theme.COLORS.GRAY_100}; 

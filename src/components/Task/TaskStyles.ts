@@ -8,6 +8,7 @@ export const Container = styled.div`
  border-radius: 8px;
  align-items: center;
  justify-content: space-between;
+ margin-top: 1.5rem;
 
  background-color: ${({theme}) => theme.COLORS.GRAY_500};
  border: 1px solid ${({theme}) => theme.COLORS.GRAY_400};
