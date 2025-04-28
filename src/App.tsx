@@ -16,6 +16,7 @@ export interface ITask {
 }
 
 export function App() {
+  const [newTaskContent, setNewTaskContent] = useState('');
   const [tasks, setTasks] = useState<ITask[]>([
     {
       id: 1,
@@ -42,14 +43,30 @@ export function App() {
     setTasks(updatedTasks)
   }
 
+  function handleCreateTask() {
+    if(newTaskContent.trim() === '') return;
+  
+    const newTask: ITask = {
+      id: Math.random(),
+      content: newTaskContent,
+      isDone: false
+    };
+
+    setTasks(prevTasks => [...prevTasks, newTask]);
+    setNewTaskContent('');
+  }
+
  return (
  <Container>
    <Header/>
 
     <TaskContainer>
       <TaskAction>
-        <Input />
-        <Button>
+        <Input 
+        value={newTaskContent}
+        onChange={(e) => setNewTaskContent(e.target.value)}
+        />
+        <Button onClick={handleCreateTask}>
           Criar
           <PlusCircle weight="bold" size={16} color="#f2f2f2"/>
         </Button>
