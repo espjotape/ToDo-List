@@ -3,6 +3,7 @@ import { Input } from "./components/Input/Input";
 import { TaskInfoCard } from "./components/TaskInfoCard/TaskInfoCard"
 import { EmptyState } from "./components/EmptyState/EmptyState.tsx";
 import { Button } from "./components/Button/Button.tsx";
+import { ConfirmModal } from "./components/ConfirmModal/ConfirmModal.tsx";
 
 import { Container, Content, TaskAction, TaskContainer } from './AppStyles';
 import { Task } from "./components/Task/Task.tsx";
@@ -31,6 +32,7 @@ export function App() {
   ]);
   const tasksCreated = tasks.length;
   const tasksCompleted = tasks.filter(task => task.isDone).length;
+  const [taskIdToDelete, setTaskIdToDelete] = useState<number | null >(null);
 
   function handleToggleTaskStatus ({ id, value }: { id: number; value: boolean}) {
     const updatedTasks = tasks.map((task) => {
@@ -56,13 +58,31 @@ export function App() {
     setNewTaskContent('');
   }
 
-  function handleDeleteTask(id: number) {
-    const filteredTasks = tasks.filter(task => task.id != id) 
-    setTasks(filteredTasks)
+  function handleAskDeleteTask(id: number) {
+    setTaskIdToDelete(id);
   }
+
+  function confirmDeleteTask() {
+    if (taskIdToDelete !== null) {
+      setTasks(prevTasks => prevTasks.filter(task => task.id !== taskIdToDelete));
+      setTaskIdToDelete(null);
+    }
+  }
+
+  function cancelDeleteTask() {
+    setTaskIdToDelete(null);
+  }
+
 
  return (
  <Container>
+    {taskIdToDelete !== null && (
+      <ConfirmModal 
+        onConfirm={confirmDeleteTask}
+        onCancel={cancelDeleteTask}
+      />
+    )}
+
    <Header/>
 
     <TaskContainer>
@@ -89,7 +109,7 @@ export function App() {
             key={task.id}
             data={task}
             onToggleTask={handleToggleTaskStatus}
-            onDeleteTask={handleDeleteTask}
+            onDeleteTask={handleAskDeleteTask}
             />
           ))}
         </div>
