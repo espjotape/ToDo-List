@@ -1,17 +1,22 @@
 import { Container, TaskCreate, Completed } from "./TaskInfoCardStyles"
 
-export function TaskInfoCard() {
+interface TaskInfoCardProps {
+ tasksCreated: number;
+ tasksCompleted: number;
+}
+
+export function TaskInfoCard({ tasksCreated, tasksCompleted }: TaskInfoCardProps) {
  return(
   <Container>
 
    <TaskCreate>
     <p>Tarefas criadas</p>
-    <span>6</span>
+    <span>{tasksCreated}</span>
    </TaskCreate>
 
    <Completed>
     <p>Concluídas</p>
-    <span>0</span>
+    <span>{tasksCompleted} de {tasksCreated}</span>
    </Completed>
   </Container>
  )

@@ -24,9 +24,11 @@ export function App() {
       id: 2,
       content: "Outra tarefa qualquer",
       isDone: true
-    }
+    },
   ]);
-  
+  const tasksCreated = tasks.length;
+  const tasksCompleted = tasks.filter(task => task.isDone).length;
+
   function handleToggleTaskStatus ({ id, value }: { id: number; value: boolean}) {
     const updatedTasks = tasks.map((task) => {
       if(task.id === id) {
@@ -49,7 +51,10 @@ export function App() {
       </TaskAction>
 
     <Content>
-      <TaskInfoCard />
+      <TaskInfoCard 
+      tasksCreated={tasksCreated}
+      tasksCompleted={tasksCompleted}
+      />
       {tasks.length > 0 ? (
         <div>
           {tasks.map ((task) => (
