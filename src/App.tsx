@@ -27,6 +27,17 @@ export function App() {
     }
   ]);
   
+  function handleToggleTaskStatus ({ id, value }: { id: number; value: boolean}) {
+    const updatedTasks = tasks.map((task) => {
+      if(task.id === id) {
+        return {...task, isDone: value}
+      }
+
+      return{...task}
+    })
+    setTasks(updatedTasks)
+  }
+
  return (
  <Container>
    <Header/>
@@ -45,6 +56,7 @@ export function App() {
             <Task 
             key={task.id}
             data={task}
+            onToggleTask={handleToggleTaskStatus}
             />
           ))}
         </div>
