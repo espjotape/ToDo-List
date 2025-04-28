@@ -25,14 +25,7 @@ export const TaskAction = styled.div`
   transform: translateY(-50%);
 `;
 
-export const ButtonCreate = styled.button`
-  width: 5.6rem
-  background: ${({theme}) => theme.COLORS.BLUE};
-  padding: 1rem;
-  border-radius: 0.65rem;
 
-  border: none;
-`
 
 export const Content = styled.main`
   display: flex;

@@ -2,10 +2,12 @@ import { Header } from "./components/Header/Header"
 import { Input } from "./components/Input/Input";
 import { TaskInfoCard } from "./components/TaskInfoCard/TaskInfoCard"
 import { EmptyState } from "./components/EmptyState/EmptyState.tsx";
+import { Button } from "./components/Button/Button.tsx";
 
-import { Container, Content, TaskAction, TaskContainer, ButtonCreate } from './AppStyles';
+import { Container, Content, TaskAction, TaskContainer } from './AppStyles';
 import { Task } from "./components/Task/Task.tsx";
 import { useState } from "react";
+import { PlusCircle } from "@phosphor-icons/react";
 
 export interface ITask {
   id: number
@@ -47,7 +49,10 @@ export function App() {
     <TaskContainer>
       <TaskAction>
         <Input />
-        <ButtonCreate>Criar</ButtonCreate>
+        <Button>
+          Criar
+          <PlusCircle weight="bold" size={16} color="#f2f2f2"/>
+        </Button>
       </TaskAction>
 
     <Content>
