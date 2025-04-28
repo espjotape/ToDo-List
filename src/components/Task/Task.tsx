@@ -4,15 +4,14 @@ import { ITask } from "../../App";
 
 interface Props {
  data: ITask
- onToggleDone: () => void;
 }
 
-export function Task({ data, onToggleDone } : Props) {
+export function Task({ data } : Props) {
  const checkboxClassName = data.isDone ? "checkbox-checked" : "checkbox-unchecked";
  return(
   <Container>
    <label htmlFor="checkbox">
-    <input readOnly type="checkbox" checked={data.isDone} onClick={onToggleDone} />
+    <input readOnly type="checkbox" checked={data.isDone} />
     <span className={`checkbox ${checkboxClassName}`}>
      {data.isDone && <Check size={12}/>}
     </span>

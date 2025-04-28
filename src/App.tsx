@@ -27,14 +27,6 @@ export function App() {
     }
   ]);
   
-  function toggleTaskStatus(id: number) {
-  setTasks(prevTasks =>
-    prevTasks.map(task =>
-      task.id === id ? { ...task, isDone: !task.isDone } : task
-    )
-   );
-  }
-
  return (
  <Container>
    <Header/>
@@ -53,7 +45,6 @@ export function App() {
             <Task 
             key={task.id}
             data={task}
-            onToggleDone={() => toggleTaskStatus(task.id)}
             />
           ))}
         </div>
