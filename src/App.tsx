@@ -56,6 +56,11 @@ export function App() {
     setNewTaskContent('');
   }
 
+  function handleDeleteTask(id: number) {
+    const filteredTasks = tasks.filter(task => task.id != id) 
+    setTasks(filteredTasks)
+  }
+
  return (
  <Container>
    <Header/>
@@ -84,6 +89,7 @@ export function App() {
             key={task.id}
             data={task}
             onToggleTask={handleToggleTaskStatus}
+            onDeleteTask={handleDeleteTask}
             />
           ))}
         </div>

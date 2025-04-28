@@ -5,14 +5,19 @@ import { ITask } from "../../App";
 interface Props {
  data: ITask
  onToggleTask: ({ id, value }: { id: number; value: boolean}) => void;
+ onDeleteTask: (id: number) => void;
 }
 
-export function Task({ data, onToggleTask } : Props) {
+export function Task({ data, onToggleTask, onDeleteTask } : Props) {
  const checkboxClassName = data.isDone ? "checkbox-checked" : "checkbox-unchecked";
  const paragraphClassName = data.isDone ? "paragraph-checked" : "";
 
  function handleTaskToggle() {
   onToggleTask({ id: data.id, value: !data.isDone })
+ }
+
+ function handleDelete(){
+  onDeleteTask(data.id)
  }
 
  return(
@@ -28,7 +33,7 @@ export function Task({ data, onToggleTask } : Props) {
     {data.content}
     </p>
   
-   <button>
+   <button onClick={handleDelete}>
     <Trash size={16} />
    </button>
   </Container>
