@@ -21,7 +21,7 @@ export const TaskAction = styled.div`
   width: 100%;
   gap: 0.5rem;
   justify-content: space-between;
-
+  
   transform: translateY(-50%);
 `;
 
@@ -36,6 +36,7 @@ export const ButtonCreate = styled.button`
 
 export const Content = styled.main`
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   width: 100%;
 `;
