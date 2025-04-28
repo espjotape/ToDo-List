@@ -48,6 +48,18 @@ export const Container = styled.div`
   border: 2px solid ${({ theme }) => theme.COLORS.BLUE};
  }
 
+ .paragraph {
+  font-size: 0.875rem;
+  user-select: none;
+  line-height: 140%;
+  transition: 0.2s all;
+ }
+  
+ .paragraph-checked {
+  text-decoration: line-through;
+  color: ${({theme}) => theme.COLORS.GRAY_300}
+ }
+
  > button {
   border: none;
   background: transparent;

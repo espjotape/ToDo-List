@@ -9,7 +9,8 @@ interface Props {
 
 export function Task({ data, onToggleTask } : Props) {
  const checkboxClassName = data.isDone ? "checkbox-checked" : "checkbox-unchecked";
- 
+ const paragraphClassName = data.isDone ? "paragraph-checked" : "";
+
  function handleTaskToggle() {
   onToggleTask({ id: data.id, value: !data.isDone })
  }
@@ -23,7 +24,9 @@ export function Task({ data, onToggleTask } : Props) {
     </span>
    </label>
 
-   <p>{data.content}</p>
+   <p className={`${paragraphClassName}`}>
+    {data.content}
+    </p>
   
    <button>
     <Trash size={16} />
