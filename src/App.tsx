@@ -9,6 +9,7 @@ import { Container, Content, TaskAction, TaskContainer } from './AppStyles';
 import { Task } from "./components/Task/Task.tsx";
 import { useState } from "react";
 import { PlusCircle } from "@phosphor-icons/react";
+import { useIsMobile } from "./hook/useIsMobile.ts";
 
 export interface ITask {
   id: number
@@ -17,6 +18,7 @@ export interface ITask {
 }
 
 export function App() {
+  const isMobile = useIsMobile();
   const [newTaskContent, setNewTaskContent] = useState('');
   const [tasks, setTasks] = useState<ITask[]>([
     {
@@ -59,7 +61,12 @@ export function App() {
   }
 
   function handleAskDeleteTask(id: number) {
-    setTaskIdToDelete(id);
+    if(isMobile) {
+      setTasks(prev => prev.filter(task => task.id !== id));
+    }
+    else{
+      setTaskIdToDelete(id);
+    }
   }
 
   function confirmDeleteTask() {
@@ -76,7 +83,7 @@ export function App() {
 
  return (
  <Container>
-    {taskIdToDelete !== null && (
+    {taskIdToDelete !== null && !isMobile && (
       <ConfirmModal 
         onConfirm={confirmDeleteTask}
         onCancel={cancelDeleteTask}
