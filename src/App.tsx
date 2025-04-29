@@ -93,7 +93,7 @@ export function App() {
         />
         <Button onClick={handleCreateTask}>
           Criar
-          <PlusCircle weight="bold" size={16} color="#f2f2f2"/>
+          <PlusCircle className="icon" weight="bold" size={16} color="#f2f2f2"/>
         </Button>
       </TaskAction>
 

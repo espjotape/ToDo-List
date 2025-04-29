@@ -21,4 +21,13 @@ export const Container = styled.button`
  &:hover {
  background: ${({theme}) => theme.COLORS.BLUE};
  }
+
+ @media (max-width: 768px) {
+  height: 3rem; 
+  font-size: 0.75rem;
+
+  .icon {
+  display: none;
+  }
+ }
 `

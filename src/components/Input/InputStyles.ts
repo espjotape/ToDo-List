@@ -14,4 +14,12 @@ export const InputField = styled.input`
  ::placeholder {
   color: ${({ theme }) => theme.COLORS.GRAY_300};
  }
+
+  @media (max-width: 768px) {
+  height: 3rem; 
+
+  &::placeholder {
+   font-size: 0.8rem;
+   }
+  }
 `

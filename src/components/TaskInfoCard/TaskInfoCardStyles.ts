@@ -27,19 +27,32 @@ export const Container = styled.header `
   background:  ${({theme}) => theme.COLORS.GRAY_400};
  }
 
+ @media (max-width: 768px) {
+  margin-top: 0.5rem;
+
+  p, span {
+   font-size: 0.8rem;
+   }
+  }
  `
 export const TaskCreate = styled.aside `
  display: flex;
  gap: 0.5rem;
-
-
-`
-export const Completed = styled.aside `
+ align-items: center;
+ `
+ export const Completed = styled.aside `
  display: flex;
  gap: 0.5rem;
-
+ align-items: center;
+ 
  p {
   font-weight: bold;
   color: ${({ theme }) => theme.COLORS.PURPLE}; 
  }
+
+  @media (max-width: 768px) {
+  p, span {
+   font-size: 0.8rem;
+   }
+  }
 `

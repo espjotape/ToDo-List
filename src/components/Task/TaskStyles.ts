@@ -80,4 +80,10 @@ export const Container = styled.div`
   > button svg:hover {
    color: ${({ theme }) => theme.COLORS.DANGER};
   }
+
+  @media (max-width: 768px) {
+    p {
+      font-size: 0.8rem;
+    }
+  }
 `
