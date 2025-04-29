@@ -21,16 +21,6 @@ export function App() {
   const isMobile = useIsMobile();
   const [newTaskContent, setNewTaskContent] = useState('');
   const [tasks, setTasks] = useState<ITask[]>([
-    {
-      id: 1,
-      content: "Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.",
-      isDone: false
-    },
-    {
-      id: 2,
-      content: "Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.",
-      isDone: true
-    },
   ]);
   const tasksCreated = tasks.length;
   const tasksCompleted = tasks.filter(task => task.isDone).length;
