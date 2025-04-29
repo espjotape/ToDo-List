@@ -13,6 +13,18 @@ export const Container = styled.div`
  p {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   color: ${({theme}) => theme.COLORS.GRAY_300}
+ }
+
+ @media (max-width: 768px) {
+ padding: 1rem 1rem;
+
+ p {
+  align-items: center;
+  text-align: center;
+  font-size: 0.84rem;
+  }
  }
 `
